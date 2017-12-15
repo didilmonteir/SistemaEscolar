@@ -1,0 +1,2 @@
+# SistemaEscolar
+Sistema acadêmico para 
