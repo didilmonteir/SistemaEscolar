@@ -4,9 +4,10 @@ public class Aluno {
 
 	private String nome;
 	private String matricula;
-	
+
 	public Aluno() {
-		
+		this.nome ="";
+		this.matricula = "";
 	}
 
 	public String getNome() {
@@ -14,7 +15,9 @@ public class Aluno {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		if (nome != null) {
+			this.nome = nome;
+		}
 	}
 
 	public String getMatricula() {
@@ -22,8 +25,9 @@ public class Aluno {
 	}
 
 	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+		if (nome != null) {
+			this.matricula = matricula;
+		}
 	}
-	
-	
+
 }
