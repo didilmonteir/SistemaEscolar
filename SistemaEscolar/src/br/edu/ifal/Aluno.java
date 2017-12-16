@@ -8,7 +8,6 @@ public class Aluno {
 	private String dataNascimento;
 	private String nomePai;
 	private String nomeMae;
-	
 
 	public Aluno() {
 		this.nome = "";
@@ -33,6 +32,46 @@ public class Aluno {
 	public void setMatricula(String matricula) {
 		if (nome != null) {
 			this.matricula = matricula;
+		}
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		if (cpf != null) {
+			this.cpf = cpf;
+		}
+	}
+
+	public String getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(String dataNascimento) {
+		if (dataNascimento != null) {
+			this.dataNascimento = dataNascimento;
+		}
+	}
+
+	public String getNomePai() {
+		return nomePai;
+	}
+
+	public void setNomePai(String nomePai) {
+		if (nomePai != null) {
+			this.nomePai = nomePai;
+		}
+	}
+
+	public String getNomeMae() {
+		return nomeMae;
+	}
+
+	public void setNomeMae(String nomeMae) {
+		if (nomeMae != null) {
+			this.nomeMae = nomeMae;
 		}
 	}
 
