@@ -4,10 +4,16 @@ public class Aluno {
 
 	private String nome;
 	private String matricula;
+	private String cpf;
+	private String dataNascimento;
+	private String nomePai;
+	private String nomeMae;
+	
 
 	public Aluno() {
-		this.nome ="";
+		this.nome = "";
 		this.matricula = "";
+
 	}
 
 	public String getNome() {
