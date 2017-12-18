@@ -12,7 +12,21 @@ public class Aluno {
 	public Aluno() {
 		this.nome = "";
 		this.matricula = "";
+		this.cpf = "";
+		this.dataNascimento = "";
+		this.nomePai = "";
+		this.nomeMae = "";
 
+	}
+
+	public Aluno(String nome, String matricula, String cpf, String dataNascimento, String nomePai, String nomeMae) {
+		super();
+		this.nome = nome;
+		this.matricula = matricula;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
 	}
 
 	public String getNome() {
