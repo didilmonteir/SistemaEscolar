@@ -1,5 +1,6 @@
 package br.edu.ifal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Escola {
@@ -10,6 +11,8 @@ public class Escola {
 		
 	public Escola() {
 		super();
+		cursos = new ArrayList<>();
+		professores = new ArrayList<>();
 	}
 	
 	public String getNome() {
