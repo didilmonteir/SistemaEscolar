@@ -9,7 +9,7 @@ import br.edu.ifal.modelo.Professor;
 public class ProfessorDao {
 	public static void main(String[] args) {
 		Professor professor = new Professor();
-		professor.setNome("Tia Prisccylla");
+		professor.setNome("Tia Priscylla");
 		professor.setFormacao("Mestre em ciência da computação");
 		professor.setCpf("111222333");
 		
@@ -21,6 +21,15 @@ public class ProfessorDao {
 		manager.getTransaction().commit();
 		
 		System.out.println("Cpf do professo: "+ professor.getCpf());
+		
+		Professor encontrado = manager.find(Professor.class, 1L);
+		System.out.println(encontrado.getNome());
+		
+		 manager.getTransaction().begin();
+         manager.remove(encontrado);
+         manager.getTransaction().commit();
+		
+         manager.close();
 		
 	}
 }
