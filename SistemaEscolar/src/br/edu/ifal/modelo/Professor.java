@@ -1,10 +1,16 @@
 package br.edu.ifal.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Professor {
 
 	private String nome;
 	private String formacao;
-	@
+	@Id
+	@GeneratedValue
 	private String cpf;
 
 
