@@ -4,7 +4,9 @@ public class Professor {
 
 	private String nome;
 	private String formacao;
+	@
 	private String cpf;
+
 
 	public Professor() {
 		super();
