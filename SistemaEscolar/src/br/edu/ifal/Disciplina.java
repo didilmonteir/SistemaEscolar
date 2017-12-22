@@ -6,7 +6,7 @@ public class Disciplina {
 	
 	private String nome;
 	private String professor;
-	private List<Alunos> Alunos;
+	private List<alunos> Alunos;
 	
 	public Disciplina() {
 		super();
