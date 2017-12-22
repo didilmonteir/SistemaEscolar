@@ -1,4 +1,4 @@
-package br.edu.ifal;
+package br.edu.ifal.modelo;
 
 import java.util.List;
 
