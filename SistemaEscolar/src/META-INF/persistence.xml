@@ -16,7 +16,7 @@
    <property name="javax.persistence.jdbc.driver" 
        value="org.postgresql.Driver" />
   <property name="javax.persistence.jdbc.url" 
-      value="jdbc:postgresql://localhost/test" />
+      value="jdbc:postgresql://localhost/sistemaescolar" />
   <property name="javax.persistence.jdbc.user" 
       value="didil" />
   <property name="javax.persistence.jdbc.password" 
