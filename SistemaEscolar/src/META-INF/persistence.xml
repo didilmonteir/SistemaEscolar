@@ -10,6 +10,10 @@
 
    <!-- entidade mapeada -->
    <class>br.edu.ifal.modelo.Professor</class>
+   <class>br.edu.ifal.modelo.Aluno</class>
+   <class>br.edu.ifal.modelo.Curso</class>
+   <class>br.edu.ifal.modelo.Disciplina</class>
+   <class>br.edu.ifal.modelo.Escola</class>
 
    <properties>
   <!-- dados da conexao -->
