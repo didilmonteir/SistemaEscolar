@@ -10,13 +10,7 @@ public class Aluno {
 	private String nomeMae;
 
 	public Aluno() { //Contrutor padrão
-		this.nome = "";
-		this.matricula = "";
-		this.cpf = "";
-		this.dataNascimento = "";
-		this.nomePai = "";
-		this.nomeMae = "";
-
+		
 	}
 	//Construtor de sobrecarga com recebimento de parametros
 	public Aluno(String nome, String matricula, String cpf, String dataNascimento, String nomePai, String nomeMae) {
