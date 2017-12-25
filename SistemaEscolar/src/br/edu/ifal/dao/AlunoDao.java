@@ -1,5 +1,7 @@
 package br.edu.ifal.dao;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import br.edu.ifal.modelo.Aluno;
@@ -33,6 +35,13 @@ public class AlunoDao {
 		Aluno a = manager.find(Aluno.class, matricula);
 		manager.remove(a);
 		manager.getTransaction().commit();
+	}
+
+	public List<Aluno> listarAlunos() {
+		manager.getTransaction().begin();
+		List<Aluno> alunos = manager.createQuery("select nome,matricula from aluno;").getResultList();
+		manager.getTransaction().commit();
+		return alunos;
 	}
 
 }
