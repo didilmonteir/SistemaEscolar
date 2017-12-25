@@ -9,11 +9,30 @@ public class AlunoDao {
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("Aluno");
 	EntityManager manager = factory.createEntityManager();
 
-	public void adicionarAluno(Aluno a) {
+	public void adicionarAluno(Aluno a) { // adiciona novo objeto ao banco
 		manager.getTransaction().begin();
 		manager.persist(a);
 		manager.getTransaction().commit();
 	}
-	
+
+	public Aluno visualizarAluno(String matricula) { // visualiza objeto do banco
+		manager.getTransaction().begin();
+		Aluno a = manager.find(Aluno.class, matricula);
+		manager.getTransaction().commit();
+		return a;
+	}
+
+	public void atualizarAluno(Aluno a) { // atualiza as informacoes do objeto no banco
+		manager.getTransaction().begin();
+		manager.merge(a);
+		manager.getTransaction().commit();
+	}
+
+	public void removerAluno(String matricula) { // remove aluno do banco
+		manager.getTransaction().begin();
+		Aluno a = manager.find(Aluno.class, matricula);
+		manager.remove(a);
+		manager.getTransaction().commit();
+	}
 
 }
