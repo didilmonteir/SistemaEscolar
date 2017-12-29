@@ -37,10 +37,19 @@ public class Disciplina {
 		return alunos;
 	}
 
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
+	public void setAlunos(List<Aluno> aluno) {
+		this.alunos = aluno;
 	}
 	
+  public void addAluno(Aluno aluno) {
+	  if (aluno!=null) {
+		  this.alunos.add(aluno);
+	  }
+	  }
+  public void removeAluno(Aluno aluno) {
+		  this.alunos.remove(aluno);
+  }
+}
 		
-	}
+	
 
