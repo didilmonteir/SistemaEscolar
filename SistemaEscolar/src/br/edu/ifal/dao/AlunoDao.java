@@ -1,6 +1,6 @@
 package br.edu.ifal.dao;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.persistence.*;
 
@@ -15,12 +15,14 @@ public class AlunoDao {
 		manager.getTransaction().begin();
 		manager.persist(a);
 		manager.getTransaction().commit();
+		manager.close();
 	}
 
 	public Aluno visualizarAluno(String matricula) { // visualiza objeto do banco
 		manager.getTransaction().begin();
 		Aluno a = manager.find(Aluno.class, matricula);
 		manager.getTransaction().commit();
+		manager.close();
 		return a;
 	}
 
@@ -28,6 +30,7 @@ public class AlunoDao {
 		manager.getTransaction().begin();
 		manager.merge(a);
 		manager.getTransaction().commit();
+		manager.close();
 	}
 
 	public void removerAluno(String matricula) { // remove aluno do banco
@@ -35,13 +38,14 @@ public class AlunoDao {
 		Aluno a = manager.find(Aluno.class, matricula);
 		manager.remove(a);
 		manager.getTransaction().commit();
+		manager.close();
 	}
 
-	public List<Aluno> listarAlunos() {
-		manager.getTransaction().begin();
-		List<Aluno> alunos = manager.createQuery("select nome,matricula from aluno;").getResultList();
-		manager.getTransaction().commit();
-		return alunos;
-	}
+	/*
+	 * public List<Aluno> listarAlunos() { // metodo responsavel de listar nome e
+	 * matricula manager.getTransaction().begin(); List<Aluno> alunos =
+	 * manager.createQuery("select nome,matricula from aluno;").getResultList();
+	 * manager.getTransaction().commit(); return alunos; }
+	 */
 
 }
