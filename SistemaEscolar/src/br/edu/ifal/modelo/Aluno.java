@@ -1,7 +1,5 @@
 package br.edu.ifal.modelo;
 
-import java.util.Calendar;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,25 +14,14 @@ public class Aluno {
 	private String cpf;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_nascimento", nullable = true)
-	private Calendar dataNascimento;
+	private String dataNascimento;
 	@Column
 	private String nomePai;
 	@Column
 	private String nomeMae;
 
-	public Aluno() { // Contrutor padrão
-
-	}
-
-	// Construtor de sobrecarga com recebimento de parametros
-	public Aluno(String nome, String matricula, String cpf, Calendar dataNascimento, String nomePai, String nomeMae) {
+	public Aluno() { // Contrutor padrao
 		super();
-		this.nome = nome;
-		this.matricula = matricula;
-		this.cpf = cpf;
-		this.dataNascimento = dataNascimento;
-		this.nomePai = nomePai;
-		this.nomeMae = nomeMae;
 	}
 
 	public String getNome() { // retorna o nome do aluno
@@ -67,11 +54,11 @@ public class Aluno {
 		}
 	}
 
-	public Calendar getDataNascimento() { // retorna a data de nascimento
+	public String getDataNascimento() { // retorna a data de nascimento
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Calendar dataNascimento) { // altera a data de nascimento
+	public void setDataNascimento(String dataNascimento) { // altera a data de nascimento
 		if (dataNascimento != null) {
 			this.dataNascimento = dataNascimento;
 		}
