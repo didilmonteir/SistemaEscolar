@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Disciplina {
-	
+
 	private String nome;
-	private List<Professor>professores;
+	private List<Professor> professores;
 	private List<Aluno> alunos;
-	
+
 	public Disciplina() {
 		super();
-	
+		professores = new ArrayList<>();
+		alunos = new ArrayList<>();
 	}
 
 	public String getNome() {
@@ -25,10 +26,11 @@ public class Disciplina {
 	public List<Professor> getProfessor() {
 		return professores;
 	}
-	
+
 	public void setProfessor(List<Professor> professor) {
 		this.professores = professor;
 	}
+
 	public void removerProfessor(Professor professor) {
 		professores.remove(professor);
 	}
@@ -40,16 +42,14 @@ public class Disciplina {
 	public void setAlunos(List<Aluno> aluno) {
 		this.alunos = aluno;
 	}
-	
-  public void addAluno(Aluno aluno) {
-	  if (aluno!=null) {
-		  this.alunos.add(aluno);
-	  }
-	  }
-  public void removeAluno(Aluno aluno) {
-		  this.alunos.remove(aluno);
-  }
-}
-		
-	
 
+	public void addAluno(Aluno aluno) {
+		if (aluno != null) {
+			this.alunos.add(aluno);
+		}
+	}
+
+	public void removeAluno(Aluno aluno) {
+		this.alunos.remove(aluno);
+	}
+}
