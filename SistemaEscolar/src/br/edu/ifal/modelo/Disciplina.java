@@ -3,10 +3,17 @@ package br.edu.ifal.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Disciplina {
 
+	@Id
 	private String nome;
+	@Column
 	private List<Professor> professores;
+	@Column
 	private List<Aluno> alunos;
 
 	public Disciplina() {

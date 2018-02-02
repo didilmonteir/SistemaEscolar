@@ -22,9 +22,9 @@
   <property name="javax.persistence.jdbc.url" 
       value="jdbc:postgresql://localhost/sistemaescolar" />
   <property name="javax.persistence.jdbc.user" 
-      value="didil" />
+      value="postgres" />
   <property name="javax.persistence.jdbc.password" 
-      value="123" />
+      value="root" />
 
    <!--  propriedades do hibernate -->
   <property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->

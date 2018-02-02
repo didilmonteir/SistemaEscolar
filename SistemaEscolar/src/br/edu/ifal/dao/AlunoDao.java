@@ -41,11 +41,5 @@ public class AlunoDao {
 		manager.close();
 	}
 
-	/*
-	 * public List<Aluno> listarAlunos() { // metodo responsavel de listar nome e
-	 * matricula manager.getTransaction().begin(); List<Aluno> alunos =
-	 * manager.createQuery("select nome,matricula from aluno;").getResultList();
-	 * manager.getTransaction().commit(); return alunos; }
-	 */
 
 }
