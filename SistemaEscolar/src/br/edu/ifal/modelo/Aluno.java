@@ -7,13 +7,13 @@ import javax.persistence.*;
 public class Aluno {
 
 	@Id
-	private String matricula;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer matricula;
 	@Column
 	private String nome;
 	@Column
 	private String cpf;
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data_nascimento", nullable = true)
+	@Column(name = "data_nascimento")
 	private String dataNascimento;
 	@Column
 	private String nomePai;
@@ -34,15 +34,10 @@ public class Aluno {
 		}
 	}
 
-	public String getMatricula() { // retorna a matricula
+	public Integer getMatricula() { // retorna a matricula
 		return matricula;
 	}
 
-	public void setMatricula(String matricula) { // altera a matricula
-		if (nome != null) {
-			this.matricula = matricula;
-		}
-	}
 
 	public String getCpf() { // retorna o CPF
 		return cpf;

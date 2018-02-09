@@ -8,7 +8,7 @@ import br.edu.ifal.modelo.Aluno;
 
 public class AlunoDao {
 
-	EntityManagerFactory factory = Persistence.createEntityManagerFactory("Aluno");
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
 	EntityManager manager = factory.createEntityManager();
 
 	public void adicionarAluno(Aluno a) { // adiciona novo objeto ao banco
@@ -18,7 +18,7 @@ public class AlunoDao {
 		manager.close();
 	}
 
-	public Aluno visualizarAluno(String matricula) { // visualiza objeto do banco
+	public Aluno visualizarAluno(Integer matricula) { // visualiza objeto do banco
 		manager.getTransaction().begin();
 		Aluno a = manager.find(Aluno.class, matricula);
 		manager.getTransaction().commit();
@@ -33,7 +33,7 @@ public class AlunoDao {
 		manager.close();
 	}
 
-	public void removerAluno(String matricula) { // remove aluno do banco
+	public void removerAluno(Integer matricula) { // remove aluno do banco
 		manager.getTransaction().begin();
 		Aluno a = manager.find(Aluno.class, matricula);
 		manager.remove(a);

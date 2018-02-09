@@ -10,7 +10,7 @@ public class Main {
 		aluno.setNome("Luke");
 		aluno.setCpf("000.00.000-01");
 		aluno.setDataNascimento("01/01/2010");
-		aluno.setMatricula("1002");
+		
 		aluno.setNomeMae("Padme");
 		aluno.setNomePai("Anakin");
 		dao.adicionarAluno(aluno);

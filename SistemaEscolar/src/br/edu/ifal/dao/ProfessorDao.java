@@ -9,9 +9,9 @@ import br.edu.ifal.modelo.Professor;
 
 public class ProfessorDao {
 	
-		Professor professor = new Professor();
+	
 		
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Professor");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
 		EntityManager manager = factory.createEntityManager();
 		
 		public void adicionarProfessor(Professor p) { // adiciona novo objeto ao banco
