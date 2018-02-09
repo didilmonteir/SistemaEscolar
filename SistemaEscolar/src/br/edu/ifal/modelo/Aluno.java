@@ -1,5 +1,7 @@
 package br.edu.ifal.modelo;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,7 +9,7 @@ import javax.persistence.*;
 public class Aluno {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer matricula;
 	@Column
 	private String nome;
@@ -19,6 +21,9 @@ public class Aluno {
 	private String nomePai;
 	@Column
 	private String nomeMae;
+	
+	@ManyToMany
+	private List<Disciplina> disciplinas;
 
 	public Aluno() { // Contrutor padrao
 		super();
@@ -37,7 +42,6 @@ public class Aluno {
 	public Integer getMatricula() { // retorna a matricula
 		return matricula;
 	}
-
 
 	public String getCpf() { // retorna o CPF
 		return cpf;
@@ -77,6 +81,14 @@ public class Aluno {
 		if (nomeMae != null) {
 			this.nomeMae = nomeMae;
 		}
+	}
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 }

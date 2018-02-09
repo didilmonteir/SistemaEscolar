@@ -6,19 +6,23 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 @Entity
 public class Disciplina {
 
 	@Id
 	private String nome;
-	@Column
-	private List<Professor> professores;
-	@Column
+	
+	@ManyToOne
+	private Professor professor;
+	
+	@ManyToMany
 	private List<Aluno> alunos;
 
 	public Disciplina() {
 		super();
-		professores = new ArrayList<>();
 		alunos = new ArrayList<>();
 	}
 
@@ -30,16 +34,12 @@ public class Disciplina {
 		this.nome = nome;
 	}
 
-	public List<Professor> getProfessor() {
-		return professores;
+	public Professor getProfessor() {
+		return professor;
 	}
 
-	public void setProfessor(List<Professor> professor) {
-		this.professores = professor;
-	}
-
-	public void removerProfessor(Professor professor) {
-		professores.remove(professor);
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 
 	public List<Aluno> getAlunos() {
@@ -59,4 +59,5 @@ public class Disciplina {
 	public void removeAluno(Aluno aluno) {
 		this.alunos.remove(aluno);
 	}
+	
 }

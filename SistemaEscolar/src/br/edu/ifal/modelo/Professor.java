@@ -1,8 +1,12 @@
 package br.edu.ifal.modelo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -10,9 +14,14 @@ import javax.persistence.Table;
 public class Professor {
 
 	private String nome;
+	
 	private String formacao;
+	
 	@Id
 	private String cpf;
+	
+	@OneToMany
+	private List<Disciplina> disciplinas;
 
 
 	public Professor() {
@@ -48,6 +57,14 @@ public class Professor {
 		if (cpf != null) {
 			this.cpf = cpf;
 		}
+	}
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 }
