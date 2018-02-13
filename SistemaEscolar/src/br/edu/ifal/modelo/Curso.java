@@ -1,5 +1,6 @@
 package br.edu.ifal.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Curso {
@@ -10,6 +11,8 @@ public class Curso {
 	
 	 public Curso() {
 		super();
+		aluno = new ArrayList<>();
+		disciplina = new ArrayList<>();
 	 }
 
 	public String getNome() {
