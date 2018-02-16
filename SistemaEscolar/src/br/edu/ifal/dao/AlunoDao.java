@@ -18,7 +18,7 @@ public class AlunoDao {
 		manager.close();
 	}
 
-	public Aluno visualizarAluno(Integer matricula) { // visualiza objeto do banco
+	public Aluno buscarAluno(Integer matricula) { // visualiza objeto do banco
 		manager.getTransaction().begin();
 		Aluno a = manager.find(Aluno.class, matricula);
 		manager.getTransaction().commit();

@@ -14,8 +14,10 @@ public class Curso {
 
 	@Id
 	private String nome;
+	
 	@OneToMany
 	private List<Aluno> aluno;
+	
 	@OneToMany
 	private List<Disciplina> disciplina;
 

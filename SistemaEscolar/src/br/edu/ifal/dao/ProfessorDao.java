@@ -21,7 +21,7 @@ public class ProfessorDao {
 			manager.close();
 		}
 
-		public Professor exibirProfessor(String cpf) { // visualiza objeto do banco
+		public Professor buscarProfessor(String cpf) { // visualiza objeto do banco
 			manager.getTransaction().begin();
 			Professor p = manager.find(Professor.class, cpf);
 			manager.getTransaction().commit();

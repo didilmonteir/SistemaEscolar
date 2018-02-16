@@ -9,16 +9,21 @@ import javax.persistence.*;
 public class Aluno {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer matricula;
+	
 	@Column
 	private String nome;
+	
 	@Column
 	private String cpf;
+	
 	@Column(name = "data_nascimento")
 	private String dataNascimento;
+	
 	@Column
 	private String nomePai;
+	
 	@Column
 	private String nomeMae;
 	

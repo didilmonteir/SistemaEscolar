@@ -13,16 +13,12 @@ import javax.persistence.Table;
 @Table(name="professor")
 public class Professor {
 
-	private String nome;
-	
-	private String formacao;
-	
 	@Id
 	private String cpf;
 	
-	@OneToMany
-	private List<Disciplina> disciplinas;
-
+	private String nome;
+	
+	private String formacao;
 
 	public Professor() {
 		super();
@@ -59,12 +55,5 @@ public class Professor {
 		}
 	}
 
-	public List<Disciplina> getDisciplinas() {
-		return disciplinas;
-	}
-
-	public void setDisciplinas(List<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
-	}
 
 }

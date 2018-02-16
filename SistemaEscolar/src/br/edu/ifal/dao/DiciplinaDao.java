@@ -17,7 +17,7 @@ public class DiciplinaDao {
 		manager.close();
 	}
 
-	public Disciplina visualizarDisciplina(String nome) { // visualiza objeto do banco
+	public Disciplina buscarDisciplina(String nome) { // visualiza objeto do banco
 		manager.getTransaction().begin();
 		Disciplina d = manager.find(Disciplina.class, nome);
 		manager.getTransaction().commit();
