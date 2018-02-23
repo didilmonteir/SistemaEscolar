@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Aluno {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer matricula;
 	
 	@Column
