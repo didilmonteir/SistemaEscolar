@@ -3,8 +3,14 @@ package br.edu.ifal.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="escola")
 public class Escola {
-	
+	@Id
+	private Integer codigo;
 	private String nome;
 	private List<Curso> cursos;
 	private List<Professor> professores;
