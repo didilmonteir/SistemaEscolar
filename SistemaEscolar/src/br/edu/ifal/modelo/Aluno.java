@@ -1,5 +1,6 @@
 package br.edu.ifal.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class Aluno {
 
 	public Aluno() { // Contrutor padrao
 		super();
+		disciplinas = new ArrayList<>();
 	}
 
 	public String getNome() { // retorna o nome do aluno
