@@ -10,7 +10,7 @@ public class DisciplinaDao {
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
 	EntityManager manager = factory.createEntityManager();
 
-	public void adicionarDiciplina(Disciplina d) { // adiciona novo objeto ao banco
+	public void adicionarDisciplina(Disciplina d) { // adiciona novo objeto ao banco
 		manager.getTransaction().begin();
 		manager.persist(d);
 		manager.getTransaction().commit();
@@ -25,7 +25,7 @@ public class DisciplinaDao {
 		return d;
 	}
 
-	public void atualizarAluno(Disciplina d) { // atualiza as informacoes do objeto no banco
+	public void atualizarDisciplina(Disciplina d) { // atualiza as informacoes do objeto no banco
 		manager.getTransaction().begin();
 		manager.merge(d);
 		manager.getTransaction().commit();
