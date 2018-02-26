@@ -3,26 +3,28 @@ package br.edu.ifal.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "disciplina")
 public class Disciplina {
 
 	@Id
 	private String nome;
-	
+
 	@ManyToOne
 	private Professor professor;
-	
+
 	@ManyToMany
 	private List<Aluno> alunos;
 
 	public Disciplina() {
 		super();
+		professor = new Professor();
 		alunos = new ArrayList<>();
 	}
 
@@ -59,5 +61,5 @@ public class Disciplina {
 	public void removeAluno(Aluno aluno) {
 		this.alunos.remove(aluno);
 	}
-	
+
 }
