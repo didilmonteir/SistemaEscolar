@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import br.edu.ifal.modelo.Disciplina;
 
-public class DiciplinaDao {
+public class DisciplinaDao {
 
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
 	EntityManager manager = factory.createEntityManager();
