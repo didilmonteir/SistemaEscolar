@@ -33,7 +33,7 @@ public class CursoDao {
 		manager.close();
 	}
 
-	public void removerAluno(Integer codigo) { // remove objeto do banco
+	public void removerCurso(Integer codigo) { // remove objeto do banco
 		manager.getTransaction().begin();
 		Curso c = manager.find(Curso.class, codigo);
 		manager.remove(c);
