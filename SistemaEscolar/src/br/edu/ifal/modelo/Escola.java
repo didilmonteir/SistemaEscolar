@@ -9,8 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 @Entity
-@Table(name="escola")
+@Table(name = "escola")
 public class Escola {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,37 +21,51 @@ public class Escola {
 	private List<Curso> cursos;
 	@OneToMany
 	private List<Professor> professores;
-		
+
 	public Escola() {
 		super();
 		cursos = new ArrayList<>();
 		professores = new ArrayList<>();
 	}
-	
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		if (codigo != null) {
+			this.codigo = codigo;
+		}
+	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		if (nome != null) {
 			this.nome = nome;
 		}
 	}
-	
+
 	public List<Curso> getCursos() {
 		return cursos;
 	}
+
 	public void setCursos(List<Curso> cursos) {
 		if (cursos != null) {
 			this.cursos = cursos;
 		}
 	}
+
 	public List<Professor> getProfessores() {
 		return professores;
 	}
+
 	public void setProfessores(List<Professor> professores) {
 		if (professores != null) {
 			this.professores = professores;
 		}
 	}
-	
+
 }
