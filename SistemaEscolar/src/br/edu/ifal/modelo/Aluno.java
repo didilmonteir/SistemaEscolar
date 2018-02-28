@@ -12,22 +12,22 @@ public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer matricula;
-	
+
 	@Column
 	private String nome;
-	
+
 	@Column
 	private String cpf;
-	
+
 	@Column(name = "data_nascimento")
 	private String dataNascimento;
-	
+
 	@Column
 	private String nomePai;
-	
+
 	@Column
 	private String nomeMae;
-	
+
 	@ManyToMany
 	private List<Disciplina> disciplinas;
 
@@ -43,6 +43,12 @@ public class Aluno {
 	public void setNome(String nome) { // altera o nome do aluno
 		if (nome != null) {
 			this.nome = nome;
+		}
+	}
+
+	public void setMatricula(Integer matricula) {
+		if (matricula != null) {
+			this.matricula = matricula;
 		}
 	}
 
