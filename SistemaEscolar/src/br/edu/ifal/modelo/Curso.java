@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Curso {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Integer codigo;
 	
 	private String nome;

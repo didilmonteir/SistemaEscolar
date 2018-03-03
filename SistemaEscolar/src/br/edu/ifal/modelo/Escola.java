@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "escola")
 public class Escola {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Integer codigo;
 	private String nome;
 	@OneToMany
