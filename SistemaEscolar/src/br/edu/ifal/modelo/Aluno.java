@@ -104,4 +104,16 @@ public class Aluno {
 		this.disciplinas = disciplinas;
 	}
 
+	public void adicionarDisciplina(Disciplina d) {
+		if (d != null) {
+			this.disciplinas.add(d);
+		}
+	}
+
+	public void removerDisciplina(Disciplina d) {
+		if (d != null) {
+			this.disciplinas.remove(d);
+		}
+	}
+
 }
