@@ -55,5 +55,16 @@ public class Curso {
 	public void setDisciplina(List<Disciplina> disciplina) {
 		this.disciplina = disciplina;
 	}
+	
+
+	public void addDisciplina(Disciplina disciplina) {
+		if (disciplina != null) {
+			this.disciplina.add(disciplina);
+		}
+	}
+
+	public void removeDisciplina(Disciplina disciplina) {
+		this.disciplina.remove(disciplina);
+	}
 
 }
