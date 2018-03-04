@@ -17,14 +17,14 @@ public class Disciplina {
 	private String nome;
 
 	@ManyToOne
-	private Professor professor;
+	private  List<Professor> professor;
 
 	@ManyToMany
 	private List<Aluno> alunos;
 
 	public Disciplina() {
 		super();
-		professor = new Professor();
+		professor = new ArrayList<>();
 		alunos = new ArrayList<>();
 	}
 
@@ -36,11 +36,11 @@ public class Disciplina {
 		this.nome = nome;
 	}
 
-	public Professor getProfessor() {
+	public List<Professor> getProfessor() {
 		return professor;
 	}
 
-	public void setProfessor(Professor professor) {
+	public void professor (List<Professor> professor) {
 		this.professor = professor;
 	}
 
@@ -61,5 +61,15 @@ public class Disciplina {
 	public void removeAluno(Aluno aluno) {
 		this.alunos.remove(aluno);
 	}
+	
 
+	public void addProfessor(Professor professor) {
+		if (professor != null) {
+			this.professor.add(professor);
+		}
+	}
+
+	public void removeProfessor(Professor professor) {
+		this.professor.remove(professor);
+	}
 }
