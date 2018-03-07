@@ -1,8 +1,8 @@
 package br.edu.ifal.modelo;
 
-import br.edu.ifal.dao.AlunoDao;
-import br.edu.ifal.dao.DiciplinaDao;
-import br.edu.ifal.dao.ProfessorDao;
+//import br.edu.ifal.dao.AlunoDao;
+//import br.edu.ifal.dao.DiciplinaDao;
+//import br.edu.ifal.dao.ProfessorDao;
 
 public class Main {
 
@@ -25,7 +25,7 @@ public class Main {
 		
 		*/
 		
-		ProfessorDao daoProf = new ProfessorDao();
+		/*ProfessorDao daoProf = new ProfessorDao();
 		/*
 		Professor p = new Professor();
 		p.setCpf("102.652.456-10");
@@ -34,12 +34,12 @@ public class Main {
 		daoProf.adicionarProfessor(p);
 		
 		*/
-		Disciplina dis = new Disciplina();
+		/*Disciplina dis = new Disciplina();
 		dis.setNome("Introdução");
 		dis.setProfessor(daoProf.buscarProfessor("102.652.456-10"));
 		DiciplinaDao daoDis = new DiciplinaDao();
 		daoDis.adicionarDiciplina(dis);
-		
+		*/
 		
 	}
 

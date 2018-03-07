@@ -35,6 +35,15 @@ public class Aluno {
 		super();
 		disciplinas = new ArrayList<>();
 	}
+	
+
+	public Aluno(Integer matricula, String nome, String cpf) {
+		super();
+		this.matricula = matricula;
+		this.nome = nome;
+		this.cpf = cpf;
+	}
+
 
 	public String getNome() { // retorna o nome do aluno
 		return nome;
