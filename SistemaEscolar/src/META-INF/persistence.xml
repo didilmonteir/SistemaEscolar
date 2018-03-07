@@ -12,7 +12,8 @@
 		<class>br.edu.ifal.modelo.Disciplina</class>
 		<class>br.edu.ifal.modelo.Curso</class>
 		<class>br.edu.ifal.modelo.Escola</class>
-
+		<class>br.edu.ifal.modelo.Nota</class>
+			
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sistemaescolar" />
