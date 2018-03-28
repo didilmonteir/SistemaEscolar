@@ -6,8 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.hibernate.bytecode.enhance.internal.tracker.SortedFieldTracker;
-
 import br.edu.ifal.modelo.Nota;
 
 public class Relatorio {
@@ -25,17 +23,24 @@ public class Relatorio {
 				menorNota = nota.getValor();
 			}
 		}
-		
+
 		setarMaioresNotas(notas);
 	}
 
 	private void setarMaioresNotas(List<Nota> notas) {
-		List<Nota> notasOrdemDecrescente = notas.stream()
-				.sorted(Comparator.comparing(Nota::getValor))
+		List<Nota> notasOrdemDecrescente = notas.stream().sorted(Comparator.comparing(Nota::getValor))
 				.collect(Collectors.toList());
-		
+
 		Collections.reverse(notasOrdemDecrescente);
 		
+		//this.top3Notas = notasOrdemDecrescente.subList(0, 3);
+
+		// EXPRESSÃO REGULAR;
+		for (int i = 0; i < 3; i++) {
+			if (notasOrdemDecrescente.size() > i) {
+				this.top3Notas.add(notasOrdemDecrescente.get(i));
+			}
+		}
 	}
 
 	public double getMaiorNota() {
@@ -45,4 +50,9 @@ public class Relatorio {
 	public double getMenorNota() {
 		return menorNota;
 	}
+
+	public List<Nota> getTop3Notas() {
+		return top3Notas;
+	}
+
 }
