@@ -1,12 +1,13 @@
 package br.edu.ifal.modelo;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,16 +17,26 @@ public class Disciplina {
 	@Id
 	private String nome;
 
-	@ManyToOne
+	@OneToMany
 	private  List<Professor> professor;
 
 	@ManyToMany
 	private List<Aluno> alunos;
+	
+	@OneToMany
+	private Set<Assunto> assunto;
 
+	
 	public Disciplina() {
 		super();
-		professor = new ArrayList<>();
-		alunos = new ArrayList<>();
+	}
+
+	public Disciplina(String nome, List<Professor> professor, List<Aluno> alunos, Set<Assunto> assunto) {
+		super();
+		this.nome = nome;
+		this.professor = professor;
+		this.alunos = alunos;
+		this.assunto = assunto;
 	}
 
 	public String getNome() {
