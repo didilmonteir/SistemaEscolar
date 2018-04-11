@@ -3,6 +3,7 @@ package br.edu.ifal.modelo;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 public class Disciplina {
 
 	@Id
+	@Column(length = 200, nullable = true)
 	private String nome;
 
 	@OneToMany
