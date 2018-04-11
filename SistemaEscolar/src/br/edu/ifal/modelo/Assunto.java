@@ -17,9 +17,9 @@ public class Assunto {
 	@GenericGenerator(name = "inc", strategy = "increment")
 	@Column(name = "cod_assunto")
 	private Long id;
-	@Column(length = 80, nullable = false)
+	@Column(length = 80, nullable = false, name = "nome_assunto")
 	private String nome;
-	@Column(length = 120, nullable = false)
+	@Column(length = 200, nullable = false, name = "descricao")
 	private String descricao;
 
 	public Assunto(Long id, String nome, String descricao) {
