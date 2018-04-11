@@ -2,6 +2,8 @@ package br.edu.ifal.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,6 +20,7 @@ public class Professor {
 	@Column(length = 80, nullable=false, name = "formacao")
 	private String formacao;
 	@Column(name = "tipo_professor", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private TipoProfessor tipoProfessor;
 
 	public enum TipoProfessor{
@@ -58,6 +61,14 @@ public class Professor {
 		if (cpf != null) {
 			this.cpf = cpf;
 		}
+	}
+
+	public TipoProfessor getTipoProfessor() {
+		return tipoProfessor;
+	}
+
+	public void setTipoProfessor(TipoProfessor tipoProfessor) {
+		this.tipoProfessor = tipoProfessor;
 	}
 
 
