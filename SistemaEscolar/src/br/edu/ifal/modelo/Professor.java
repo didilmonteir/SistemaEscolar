@@ -10,12 +10,21 @@ import javax.persistence.Table;
 public class Professor {
 
 	@Id
+	@Column(length = 11, nullable = false, name = "cpf")
 	private String cpf;
-	@Column
-	private String nome;
-	@Column
-	private String formacao;
 
+	@Column(length = 200, nullable = false, name = "nome_professors")
+	private String nome;
+	@Column(length = 80, nullable=false, name = "formacao")
+	private String formacao;
+	@Column(name = "tipo_professor", nullable = false)
+	private TipoProfessor tipoProfessor;
+
+	public enum TipoProfessor{
+		SUBSTITUTO,
+		EFETIVO,
+	}
+	
 	public Professor() {
 		super();
 	}
