@@ -30,6 +30,15 @@ public class Aluno {
 
 	@Column(length = 200, nullable = false, name = "nome_mae")
 	private String nomeMae;
+	@Enumerated(EnumType.STRING)
+	private TipoAluno tipoAluno;
+	
+	public enum TipoAluno {
+		BOLSISTA_ASSISTENCIA,
+		BOLSITA_PESQUISA,
+		BOLSITA_EXTENSAO,
+		SEM_BOLSA,
+	}
 
 	@ManyToMany
 	private List<Disciplina> disciplinas;
