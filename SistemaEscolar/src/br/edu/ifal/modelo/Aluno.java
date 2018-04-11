@@ -16,19 +16,19 @@ public class Aluno {
 	@GenericGenerator(name = "inc", strategy = "increment")
 	private Integer matricula;
 
-	@Column
+	@Column(length = 200, nullable = true, name = "nome_aluno")
 	private String nome;
 
-	@Column
+	@Column(length = 200, nullable = true, name = "cpf")
 	private String cpf;
 
-	@Column(name = "data_nascimento")
+	@Column(length = 8, nullable = true, name = "data_nascimento")
 	private String dataNascimento;
 
-	@Column
+	@Column(length = 200, nullable = false, name = "nome_pai")
 	private String nomePai;
 
-	@Column
+	@Column(length = 200, nullable = false, name = "nome_mae")
 	private String nomeMae;
 
 	@ManyToMany
