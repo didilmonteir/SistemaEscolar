@@ -46,19 +46,6 @@ public class Aluno extends Pessoa{
 	public Aluno(Integer matricula, String nome, String cpf) {
 		super();
 		this.matricula = matricula;
-		this.nome = nome;
-		this.cpf = cpf;
-	}
-
-
-	public String getNome() { // retorna o nome do aluno
-		return nome;
-	}
-
-	public void setNome(String nome) { // altera o nome do aluno
-		if (nome != null) {
-			this.nome = nome;
-		}
 	}
 
 	public void setMatricula(Integer matricula) {
@@ -69,16 +56,6 @@ public class Aluno extends Pessoa{
 
 	public Integer getMatricula() { // retorna a matricula
 		return matricula;
-	}
-
-	public String getCpf() { // retorna o CPF
-		return cpf;
-	}
-
-	public void setCpf(String cpf) { // altera o CPF
-		if (cpf != null) {
-			this.cpf = cpf;
-		}
 	}
 
 	public String getDataNascimento() { // retorna a data de nascimento
