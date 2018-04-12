@@ -16,13 +16,13 @@ public class Aluno extends Pessoa{
 	@GenericGenerator(name = "inc", strategy = "increment")
 	private Integer matricula;
 
-	@Column(length = 8, nullable = true, name = "data_nascimento")
+	@Column(length = 8, nullable = false, name = "data_nascimento")
 	private String dataNascimento;
 
-	@Column(length = 200, nullable = false, name = "nome_pai")
+	@Column(length = 200, nullable = true, name = "nome_pai")
 	private String nomePai;
 
-	@Column(length = 200, nullable = false, name = "nome_mae")
+	@Column(length = 200, nullable = true, name = "nome_mae")
 	private String nomeMae;
 	@Enumerated(EnumType.STRING)
 	private TipoAluno tipoAluno;
