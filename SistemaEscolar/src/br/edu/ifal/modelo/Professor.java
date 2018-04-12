@@ -13,10 +13,8 @@ public class Professor extends Pessoa{
 
 	@Id
 	@Column(length = 11, nullable = false, name = "cpf")
-	private String cpf;
+	private String numeroCadastro;
 
-	@Column(length = 200, nullable = false, name = "nome_professors")
-	private String nome;
 	@Column(length = 80, nullable=false, name = "formacao")
 	private String formacao;
 	@Column(name = "tipo_professor", nullable = false)
@@ -32,16 +30,7 @@ public class Professor extends Pessoa{
 		super();
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		if (nome != null) {
-			this.nome = nome;
-		}
-	}
-
+	
 	public String getFormacao() {
 		return formacao;
 	}
@@ -51,16 +40,6 @@ public class Professor extends Pessoa{
 			this.formacao = formacao;
 		}
 
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		if (cpf != null) {
-			this.cpf = cpf;
-		}
 	}
 
 	public TipoProfessor getTipoProfessor() {
