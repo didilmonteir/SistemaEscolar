@@ -20,10 +20,10 @@ public class Disciplina {
 	private String nome;
 
 	@OneToMany
-	private  List<Professor> professor;
+	private  Set<Professor> professor;
 
 	@ManyToMany
-	private List<Aluno> alunos;
+	private Set<Aluno> alunos;
 	
 	@OneToMany
 	private Set<Assunto> assunto;
@@ -33,12 +33,57 @@ public class Disciplina {
 		super();
 	}
 
-	public Disciplina(String nome, List<Professor> professor, List<Aluno> alunos, Set<Assunto> assunto) {
+	public Disciplina(String nome, Set<Professor> professor, Set<Aluno> alunos, Set<Assunto> assunto) {
 		super();
 		this.nome = nome;
 		this.professor = professor;
 		this.alunos = alunos;
 		this.assunto = assunto;
+	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((alunos == null) ? 0 : alunos.hashCode());
+		result = prime * result + ((assunto == null) ? 0 : assunto.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((professor == null) ? 0 : professor.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Disciplina other = (Disciplina) obj;
+		if (alunos == null) {
+			if (other.alunos != null)
+				return false;
+		} else if (!alunos.equals(other.alunos))
+			return false;
+		if (assunto == null) {
+			if (other.assunto != null)
+				return false;
+		} else if (!assunto.equals(other.assunto))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (professor == null) {
+			if (other.professor != null)
+				return false;
+		} else if (!professor.equals(other.professor))
+			return false;
+		return true;
 	}
 
 	public String getNome() {
@@ -49,19 +94,19 @@ public class Disciplina {
 		this.nome = nome;
 	}
 
-	public List<Professor> getProfessor() {
+	public Set<Professor> getProfessor() {
 		return professor;
 	}
 
-	public void professor (List<Professor> professor) {
+	public void professor (Set<Professor> professor) {
 		this.professor = professor;
 	}
 
-	public List<Aluno> getAlunos() {
+	public Set<Aluno> getAlunos() {
 		return alunos;
 	}
 
-	public void setAlunos(List<Aluno> aluno) {
+	public void setAlunos(Set<Aluno> aluno) {
 		this.alunos = aluno;
 	}
 
