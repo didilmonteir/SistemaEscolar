@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="professor")
-public class Professor {
+public class Professor extends Pessoa{
 
 	@Id
 	@Column(length = 11, nullable = false, name = "cpf")
