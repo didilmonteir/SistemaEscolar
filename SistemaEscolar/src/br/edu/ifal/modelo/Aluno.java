@@ -9,18 +9,12 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "aluno")
-public class Aluno {
+public class Aluno extends Pessoa{
 
 	@Id
 	@GeneratedValue(generator = "inc")
 	@GenericGenerator(name = "inc", strategy = "increment")
 	private Integer matricula;
-
-	@Column(length = 200, nullable = true, name = "nome_aluno")
-	private String nome;
-
-	@Column(length = 200, nullable = true, name = "cpf")
-	private String cpf;
 
 	@Column(length = 8, nullable = true, name = "data_nascimento")
 	private String dataNascimento;
@@ -137,4 +131,15 @@ public class Aluno {
 		}
 	}
 
+
+	public TipoAluno getTipoAluno() {
+		return tipoAluno;
+	}
+
+
+	public void setTipoAluno(TipoAluno tipoAluno) {
+		this.tipoAluno = tipoAluno;
+	}
+
+	
 }
