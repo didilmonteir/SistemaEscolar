@@ -25,6 +25,7 @@ public class Aluno extends Pessoa{
 
 	@Column(length = 200, nullable = true, name = "nome_mae")
 	private String nomeMae;
+	
 	@Enumerated(EnumType.STRING)
 	private TipoAluno tipoAluno;
 	
@@ -38,8 +39,6 @@ public class Aluno extends Pessoa{
 	@ManyToMany
 	private Set<Disciplina> disciplinas;
 	
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -66,6 +65,12 @@ public class Aluno extends Pessoa{
 		return true;
 	}
 
+	public Aluno(String nome, String cpf) {
+		super();
+		this.matricula = matricula;
+	}
+
+	
 	public Aluno(Integer matricula, String nome, String cpf) {
 		super();
 		this.matricula = matricula;
