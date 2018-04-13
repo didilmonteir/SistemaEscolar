@@ -2,7 +2,9 @@ package br.edu.ifal.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -21,18 +24,21 @@ public class Curso {
 	@GenericGenerator(name = "inc", strategy = "increment")
 	private Integer codigo;
 	
+	@Column(length = 50, nullable = false, name = "nome")
 	private String nome;
 	
 	@OneToMany
-	private List<Aluno> aluno;
+	private Set<Aluno> aluno;
 	
 	@OneToMany
-	private List<Disciplina> disciplina;
+	private Set<Disciplina> disciplina;
 
-	public Curso() {
+	public Curso(Integer codigo, String nome, Set<Aluno> aluno, Set<Disciplina> disciplina) {
 		super();
-		aluno = new ArrayList<>();
-		disciplina = new ArrayList<>();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.aluno = aluno;
+		this.disciplina = disciplina;
 	}
 
 	public String getNome() {
@@ -43,19 +49,19 @@ public class Curso {
 		this.nome = nome;
 	}
 
-	public List<Aluno> getAluno() {
+	public Set<Aluno> getAluno() {
 		return aluno;
 	}
 
-	public void setAluno(List<Aluno> aluno) {
+	public void setAluno(Set<Aluno> aluno) {
 		this.aluno = aluno;
 	}
 
-	public List<Disciplina> getDisciplina() {
+	public Set<Disciplina> getDisciplina() {
 		return disciplina;
 	}
 
-	public void setDisciplina(List<Disciplina> disciplina) {
+	public void setDisciplina(Set<Disciplina> disciplina) {
 		this.disciplina = disciplina;
 	}
 	
