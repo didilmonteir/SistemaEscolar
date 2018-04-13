@@ -2,6 +2,7 @@ package br.edu.ifal.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -33,15 +34,37 @@ public class Aluno extends Pessoa{
 		BOLSITA_EXTENSAO,
 		SEM_BOLSA,
 	}
-
-	@ManyToMany
-	private List<Disciplina> disciplinas;
-
-	public Aluno() { // Contrutor padrao
-		super();
-		disciplinas = new ArrayList<>();
-	}
 	
+	@ManyToMany
+	private Set<Disciplina> disciplinas;
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((disciplinas == null) ? 0 : disciplinas.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		if (disciplinas == null) {
+			if (other.disciplinas != null)
+				return false;
+		} else if (!disciplinas.equals(other.disciplinas))
+			return false;
+		return true;
+	}
 
 	public Aluno(Integer matricula, String nome, String cpf) {
 		super();
@@ -88,11 +111,11 @@ public class Aluno extends Pessoa{
 		}
 	}
 
-	public List<Disciplina> getDisciplinas() {
+	public Set<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
 
-	public void setDisciplinas(List<Disciplina> disciplinas) {
+	public void setDisciplinas(Set<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
 
@@ -108,15 +131,12 @@ public class Aluno extends Pessoa{
 		}
 	}
 
-
 	public TipoAluno getTipoAluno() {
 		return tipoAluno;
 	}
-
 
 	public void setTipoAluno(TipoAluno tipoAluno) {
 		this.tipoAluno = tipoAluno;
 	}
 
-	
 }
