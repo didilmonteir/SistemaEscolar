@@ -2,7 +2,9 @@ package br.edu.ifal.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,16 +21,19 @@ public class Escola {
 	@GeneratedValue(generator = "inc")
 	@GenericGenerator(name = "inc", strategy = "increment")
 	private Integer codigo;
+	@Column(length = 200, nullable = false, name = "nome")
 	private String nome;
 	@OneToMany
-	private List<Curso> cursos;
+	private Set<Curso> cursos;
 	@OneToMany
-	private List<Professor> professores;
+	private Set<Professor> professores;
 
-	public Escola() {
+	public Escola(Integer codigo, String nome, Set<Curso> cursos, Set<Professor> professores) {
 		super();
-		cursos = new ArrayList<>();
-		professores = new ArrayList<>();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.cursos = cursos;
+		this.professores = professores;
 	}
 
 	public Integer getCodigo() {
@@ -51,21 +56,21 @@ public class Escola {
 		}
 	}
 
-	public List<Curso> getCursos() {
+	public Set<Curso> getCursos() {
 		return cursos;
 	}
 
-	public void setCursos(List<Curso> cursos) {
+	public void setCursos(Set<Curso> cursos) {
 		if (cursos != null) {
 			this.cursos = cursos;
 		}
 	}
 
-	public List<Professor> getProfessores() {
+	public Set<Professor> getProfessores() {
 		return professores;
 	}
 
-	public void setProfessores(List<Professor> professores) {
+	public void setProfessores(Set<Professor> professores) {
 		if (professores != null) {
 			this.professores = professores;
 		}
