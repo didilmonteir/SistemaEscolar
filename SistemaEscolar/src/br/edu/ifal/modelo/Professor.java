@@ -22,6 +22,8 @@ public class Professor extends Pessoa{
 	public Professor() {
 		super();
 	}
+	@Column(name = "tipo_professor", nullable = false)
+	private TipoProfessor tipoProfessor;
 
 	public String getFormacao() {
 		return formacao;
@@ -31,6 +33,15 @@ public class Professor extends Pessoa{
 		if (formacao != null) {
 			this.formacao = formacao;
 		}
-
 	}
+
+	public TipoProfessor getTipoProfessor() {
+		return tipoProfessor;
+	}
+
+	public void setTipoProfessor(TipoProfessor tipoProfessor) {
+		this.tipoProfessor = tipoProfessor;
+	}
+	
+	
 }
