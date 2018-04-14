@@ -9,7 +9,7 @@ import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "aluno")
+@DiscriminatorValue("aluno")
 public class Aluno extends Pessoa{
 
 	@Id
@@ -25,16 +25,6 @@ public class Aluno extends Pessoa{
 
 	@Column(length = 200, nullable = true, name = "nome_mae")
 	private String nomeMae;
-	
-	@Enumerated(EnumType.STRING)
-	private TipoAluno tipoAluno;
-	
-	public enum TipoAluno {
-		BOLSISTA_ASSISTENCIA,
-		BOLSITA_PESQUISA,
-		BOLSITA_EXTENSAO,
-		SEM_BOLSA,
-	}
 	
 	@ManyToMany
 	private Set<Disciplina> disciplinas;
@@ -134,14 +124,6 @@ public class Aluno extends Pessoa{
 		if (d != null) {
 			this.disciplinas.remove(d);
 		}
-	}
-
-	public TipoAluno getTipoAluno() {
-		return tipoAluno;
-	}
-
-	public void setTipoAluno(TipoAluno tipoAluno) {
-		this.tipoAluno = tipoAluno;
 	}
 
 }
