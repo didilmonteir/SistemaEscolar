@@ -28,6 +28,9 @@ public class Aluno extends Pessoa{
 	
 	@ManyToMany
 	private Set<Disciplina> disciplinas;
+	@Column(name = "tipo_aluno", nullable = false)
+	private TipoAluno tipoAluno;
+	
 	
 	@Override
 	public int hashCode() {
@@ -125,5 +128,17 @@ public class Aluno extends Pessoa{
 			this.disciplinas.remove(d);
 		}
 	}
+
+
+	public TipoAluno getTipoAluno() {
+		return tipoAluno;
+	}
+
+
+	public void setTipoAluno(TipoAluno tipoAluno) {
+		this.tipoAluno = tipoAluno;
+	}
+	
+	
 
 }
