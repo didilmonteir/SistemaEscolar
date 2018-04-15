@@ -1,4 +1,4 @@
-package br.edu.ifal.modelo;
+package br.edu.ifal.main;
 
 //import br.edu.ifal.dao.AlunoDao;
 //import br.edu.ifal.dao.DiciplinaDao;
