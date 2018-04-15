@@ -9,7 +9,8 @@ import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@DiscriminatorValue("aluno")
+@Table(name = "aluno")
+@PrimaryKeyJoinColumn(name = "pessoa_id")
 public class Aluno extends Pessoa{
 
 	@Id
