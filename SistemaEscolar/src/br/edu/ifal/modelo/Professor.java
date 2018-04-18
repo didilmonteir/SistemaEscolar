@@ -1,11 +1,7 @@
 package br.edu.ifal.modelo;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -13,20 +9,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "professor")
 @PrimaryKeyJoinColumn(name = "pessoa_id")
-public class Professor extends Pessoa{
+public class Professor extends Pessoa {
 
 	@Id
 	@Column(length = 11, nullable = false, name = "cpf")
 	private String numeroCadastro;
 
-	@Column(length = 80, nullable=false, name = "formacao")
+	@Column(length = 80, nullable = false, name = "formacao")
 	private String formacao;
+
+	@Column(name = "tipo_professor", nullable = false)
+	private TipoProfessor tipoProfessor;
 
 	public Professor() {
 		super();
 	}
-	@Column(name = "tipo_professor", nullable = false)
-	private TipoProfessor tipoProfessor;
 
 	public String getFormacao() {
 		return formacao;
@@ -45,6 +42,5 @@ public class Professor extends Pessoa{
 	public void setTipoProfessor(TipoProfessor tipoProfessor) {
 		this.tipoProfessor = tipoProfessor;
 	}
-	
-	
+
 }
