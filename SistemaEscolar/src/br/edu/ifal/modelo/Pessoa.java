@@ -10,8 +10,9 @@ import javax.persistence.Table;
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class  Pessoa {
+
 	@Column(name = "id_pessoa")
-	private Long id;
+	private Integer id;
 	
 	@Column(length = 200, nullable = false, name = "aluno")
 	private String nome;
