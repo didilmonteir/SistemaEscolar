@@ -1,7 +1,5 @@
 package br.edu.ifal.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -61,7 +59,6 @@ public class Aluno extends Pessoa{
 
 	public Aluno(String nome, String cpf) {
 		super();
-		this.matricula = matricula;
 	}
 
 	
