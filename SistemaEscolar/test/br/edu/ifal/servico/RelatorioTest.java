@@ -11,13 +11,11 @@ import org.junit.Test;
 import br.edu.ifal.modelo.Aluno;
 import br.edu.ifal.modelo.Disciplina;
 import br.edu.ifal.modelo.Nota;
-import br.edu.ifal.modelo.Professor;;
 
 public class RelatorioTest {
 
 	private List<Aluno> alunos;
 	private Disciplina disciplina;
-	private Professor professor;
 	private List<Nota> notas;
 	private Relatorio relatorio;
 
@@ -26,12 +24,13 @@ public class RelatorioTest {
 		this.alunos = new ArrayList<>();
 		this.disciplina = new Disciplina();
 		this.notas = new ArrayList<>();
-		this.professor = new Professor();
 		this.relatorio = new Relatorio();
+
 		Aluno ana = new Aluno(4, "Edvald", "011.246.001-22");
 		Aluno ze = new Aluno(1, "Bekinha", "118.666.014-74");
 		Aluno juca = new Aluno(2, "Kelvin mestre dos Hardware", "111.222.333-75");
 		Aluno bekinha = new Aluno(1, "Bekinha", "118.666.014-74");
+
 		this.alunos.add(ana);
 		this.alunos.add(ze);
 		this.alunos.add(juca);
@@ -40,12 +39,12 @@ public class RelatorioTest {
 
 	@Test
 	public void deveFuncionarNaOrdemAleatoria() {
-	
+
 		disciplina.setNome("Qualidade de software");
 
 		notas.add(new Nota(4, alunos.get(0), disciplina, 2.5));
 		notas.add(new Nota(1, alunos.get(1), disciplina, 9.5));
-		notas.add(new Nota(2,alunos.get(2) , disciplina, 7.5));
+		notas.add(new Nota(2, alunos.get(2), disciplina, 7.5));
 
 		double maiorNotaEsperada = 9.5;
 		double menorNotaEsperada = 2.5;
@@ -65,7 +64,7 @@ public class RelatorioTest {
 
 		notas.add(new Nota(4, alunos.get(0), disciplina, 2.5));
 		notas.add(new Nota(1, alunos.get(1), disciplina, 9.5));
-		notas.add(new Nota(2,alunos.get(2) , disciplina, 7.5));
+		notas.add(new Nota(2, alunos.get(2), disciplina, 7.5));
 
 		double maiorNotaEsperada = 9.5;
 		double menorNotaEsperada = 2.5;
@@ -81,7 +80,7 @@ public class RelatorioTest {
 
 	@Test
 	public void deveFuncionarNaOrdemDecrescente() {
-		
+
 		disciplina.setNome("Qualidade de software");
 
 		notas.add(new Nota(4, alunos.get(0), disciplina, 9.5));
@@ -90,8 +89,7 @@ public class RelatorioTest {
 
 		double maiorNotaEsperada = 9.5;
 		double menorNotaEsperada = 2.5;
-		
-		
+
 		Relatorio relatorio = new Relatorio();
 		relatorio.gerar(notas);
 		// System.out.println(r.getMaiorNota() == maiorNotaEsperada );
@@ -103,7 +101,7 @@ public class RelatorioTest {
 
 	@Test
 	public void deveFuncionarComUmaUnicaNota() {
-	   
+
 		Aluno ana = new Aluno(4, "Edvald", "011.246.001-22");
 
 		this.alunos.add(ana);
@@ -126,7 +124,7 @@ public class RelatorioTest {
 
 	@Test
 	public void deveFuncionarDaIdentificaoDasTresMaioresNotas() {
-	
+
 		disciplina.setNome("Qualidade de software");
 
 		this.notas.add(new Nota(4, alunos.get(0), disciplina, 8.0));
@@ -151,7 +149,7 @@ public class RelatorioTest {
 
 	@Test
 	public void deveFuncionarDaIdentificaoDeUmaNota() {
-		
+
 		Aluno ana = new Aluno(4, "Edvald", "011.246.001-22");
 
 		disciplina.setNome("Qualidade de software");
@@ -172,54 +170,50 @@ public class RelatorioTest {
 
 	@Test
 	public void deveFuncionarDaIdentificaoDeNenhumaNota() {
-			
+
 		disciplina.setNome("Qualidade de software");
-		
+
 		Relatorio relatorio = new Relatorio();
 		relatorio.gerar(notas);
 
 		int quantidadeDeNotasEsperadas = 0;
-		
+
 		assertEquals(quantidadeDeNotasEsperadas, relatorio.getTop3Notas().size());
-		
+
 	}
-	 
-	/*@Test
-	public void deveFuncionarParaAs3PrimeirasNotasParaNenhumAluno() {
-		criacaoDasEntidadesParaOsTestes();
-		
-	}
-	*/
+
+	/*
+	 * @Test public void deveFuncionarParaAs3PrimeirasNotasParaNenhumAluno() {
+	 * criacaoDasEntidadesParaOsTestes();
+	 * 
+	 * }
+	 */
 	@Test
 	public void deveFuncionarParaAs3PrimeirasNotasPara4Alunos() {
-	
+
 		notas.add(new Nota(4, alunos.get(0), disciplina, 8.0));
-		notas.add(new Nota(2,alunos.get(1),disciplina,7.0) );
-		notas.add(new Nota(3,alunos.get(2),disciplina,6.0) );
-		notas.add(new Nota(1,alunos.get(3),disciplina,9.5) );
-		
+		notas.add(new Nota(2, alunos.get(1), disciplina, 7.0));
+		notas.add(new Nota(3, alunos.get(2), disciplina, 6.0));
+		notas.add(new Nota(1, alunos.get(3), disciplina, 9.5));
+
 		Relatorio relatorio = new Relatorio();
 		relatorio.gerar(notas);
 		int quantidadeDeNotasEsperadas = 3;
 		assertEquals(quantidadeDeNotasEsperadas, relatorio.getTop3Notas().size());
-		
-		
+
 	}
-	
-	
+
 	@Test
 	public void deveFuncionarParaAs3PrimeirasNotasPara2Alunos() {
-		
+
 		notas.add(new Nota(4, alunos.get(0), disciplina, 8.0));
-		notas.add(new Nota(2,alunos.get(1),disciplina,7.0) );
-		
+		notas.add(new Nota(2, alunos.get(1), disciplina, 7.0));
+
 		Relatorio relatorio = new Relatorio();
 		relatorio.gerar(notas);
 		int quantidadeDeNotasEsperadas = 2;
 		assertEquals(quantidadeDeNotasEsperadas, relatorio.getTop3Notas().size());
-		
-		
+
 	}
 
 }
-
