@@ -2,19 +2,16 @@ package br.edu.ifal.modelo;
 
 import java.util.Set;
 
-import javax.persistence.*;
-
-import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "aluno")
-@PrimaryKeyJoinColumn(name = "pessoa_id")
-public class Aluno extends Pessoa{
-
-	@Id
-	@GeneratedValue(generator = "inc")
-	@GenericGenerator(name = "inc", strategy = "increment")
-	private Integer matricula;
+@PrimaryKeyJoinColumn(name = "id")
+public class Aluno extends Pessoa {
 
 	@Column(length = 8, nullable = false, name = "data_nascimento")
 	private String dataNascimento;
@@ -24,13 +21,17 @@ public class Aluno extends Pessoa{
 
 	@Column(length = 200, nullable = true, name = "nome_mae")
 	private String nomeMae;
-	
+
 	@ManyToMany
 	private Set<Disciplina> disciplinas;
+
 	@Column(name = "tipo_aluno", nullable = false)
 	private TipoAluno tipoAluno;
-	
-	
+
+	public Aluno(Integer id, String nome, String cpf) {
+		super(nome, cpf);
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -38,7 +39,6 @@ public class Aluno extends Pessoa{
 		result = prime * result + ((disciplinas == null) ? 0 : disciplinas.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -57,51 +57,31 @@ public class Aluno extends Pessoa{
 		return true;
 	}
 
-	public Aluno(String nome, String cpf) {
-		super();
-	}
-
-	
-	public Aluno(Integer matricula, String nome, String cpf) {
-		super();
-		this.matricula = matricula;
-	}
-
-	public void setMatricula(Integer matricula) {
-		if (matricula != null) {
-			this.matricula = matricula;
-		}
-	}
-
-	public Integer getMatricula() { // retorna a matricula
-		return matricula;
-	}
-
-	public String getDataNascimento() { // retorna a data de nascimento
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) { // altera a data de nascimento
+	public void setDataNascimento(String dataNascimento) {
 		if (dataNascimento != null) {
 			this.dataNascimento = dataNascimento;
 		}
 	}
 
-	public String getNomePai() { // retorna o nome do pai
+	public String getNomePai() {
 		return nomePai;
 	}
 
-	public void setNomePai(String nomePai) { // altera o nome do pai
+	public void setNomePai(String nomePai) {
 		if (nomePai != null) {
 			this.nomePai = nomePai;
 		}
 	}
 
-	public String getNomeMae() { // retorna o nome do mae
+	public String getNomeMae() {
 		return nomeMae;
 	}
 
-	public void setNomeMae(String nomeMae) { // altera o nome do mae
+	public void setNomeMae(String nomeMae) {
 		if (nomeMae != null) {
 			this.nomeMae = nomeMae;
 		}
@@ -127,16 +107,12 @@ public class Aluno extends Pessoa{
 		}
 	}
 
-
 	public TipoAluno getTipoAluno() {
 		return tipoAluno;
 	}
 
-
 	public void setTipoAluno(TipoAluno tipoAluno) {
 		this.tipoAluno = tipoAluno;
 	}
-	
-	
 
 }
