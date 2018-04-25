@@ -2,23 +2,32 @@ package br.edu.ifal.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class  Pessoa {
-
+public abstract class Pessoa {
+	@Id
+	@GeneratedValue(generator = "inc")
+	@GenericGenerator(name = "inc", strategy = "increment")
 	@Column(name = "id_pessoa")
-	private Integer id;
-	
-	@Column(length = 200, nullable = false, name = "aluno")
-	private String nome;
+	protected Integer id;
 
-	@Column(length = 200, nullable = false, name = "cpf")
-	private String cpf;
+	@Column(nullable = false, name = "nome")
+	protected String nome;
+
+	@Column(length = 11, nullable = false, name = "cpf")
+	protected String cpf;
+
+	public Pessoa(String nome, String cpf) {
+		this.nome = nome;
+		this.cpf = cpf;
+	}
 
 	public String getNome() {
 		return nome;
@@ -26,7 +35,7 @@ public abstract class  Pessoa {
 
 	public void setNome(String nome) {
 		if (nome != null) {
-			this.nome = cpf;
+			this.nome = nome;
 		}
 	}
 
@@ -39,7 +48,5 @@ public abstract class  Pessoa {
 			this.cpf = cpf;
 		}
 	}
-	
-	
 
 }
