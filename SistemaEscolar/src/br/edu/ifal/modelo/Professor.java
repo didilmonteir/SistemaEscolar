@@ -2,27 +2,28 @@ package br.edu.ifal.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "professor")
-@PrimaryKeyJoinColumn(name = "pessoa_id")
+@PrimaryKeyJoinColumn(name = "id")
 public class Professor extends Pessoa {
 
-	@Id
-	@Column(length = 11, nullable = false, name = "cpf")
-	private String numeroCadastro;
-
-	@Column(length = 80, nullable = false, name = "formacao")
+	@Column(nullable = false, name = "formacao")
 	private String formacao;
 
 	@Column(name = "tipo_professor", nullable = false)
 	private TipoProfessor tipoProfessor;
 
-	public Professor() {
-		super();
+	public Professor(String nome, String cpf) {
+		super(nome, cpf);
+	}
+
+	public Professor(String nome, String cpf, String formacao, TipoProfessor tipoProfessor) {
+		super(nome, cpf);
+		this.formacao = formacao;
+		this.tipoProfessor = tipoProfessor;
 	}
 
 	public String getFormacao() {
