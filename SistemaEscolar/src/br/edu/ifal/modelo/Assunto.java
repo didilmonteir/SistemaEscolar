@@ -9,21 +9,22 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "tab_assunto")
+@Table(name = "assunto")
 public class Assunto {
-	
+
 	@Id
 	@GeneratedValue(generator = "inc")
 	@GenericGenerator(name = "inc", strategy = "increment")
 	@Column(name = "cod_assunto")
-	private Long id;
-	@Column(length = 80, nullable = false, name = "nome_assunto")
+	private Integer id;
+
+	@Column(nullable = false, name = "nome_assunto")
 	private String nome;
-	@Column(length = 200, nullable = false, name = "descricao")
+
+	@Column(nullable = false, name = "descricao")
 	private String descricao;
 
-	public Assunto(Long id, String nome, String descricao) {
-		super();
+	public Assunto(Integer id, String nome, String descricao) {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
@@ -32,7 +33,7 @@ public class Assunto {
 	public Assunto() {
 		super();
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -70,15 +71,14 @@ public class Assunto {
 		return true;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	
 	public String getNome() {
 		return nome;
 	}
