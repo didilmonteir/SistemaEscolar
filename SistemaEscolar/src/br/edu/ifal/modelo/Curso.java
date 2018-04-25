@@ -19,18 +19,17 @@ public class Curso {
 	@GeneratedValue(generator = "inc")
 	@GenericGenerator(name = "inc", strategy = "increment")
 	private Integer codigo;
-	
+
 	@Column(length = 50, nullable = false, name = "nome")
 	private String nome;
-	
+
 	@OneToMany
 	private Set<Aluno> aluno;
-	
+
 	@OneToMany
 	private Set<Disciplina> disciplina;
 
 	public Curso(Integer codigo, String nome, Set<Aluno> aluno, Set<Disciplina> disciplina) {
-		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.aluno = aluno;
@@ -53,6 +52,14 @@ public class Curso {
 		this.aluno = aluno;
 	}
 
+	public void adicionarAluno(Aluno a) {
+		aluno.add(a);
+	}
+
+	public void removerAluno(Aluno a) {
+		aluno.remove(a);
+	}
+
 	public Set<Disciplina> getDisciplina() {
 		return disciplina;
 	}
@@ -60,9 +67,8 @@ public class Curso {
 	public void setDisciplina(Set<Disciplina> disciplina) {
 		this.disciplina = disciplina;
 	}
-	
 
-	public void addDisciplina(Disciplina disciplina) {
+	public void adicionarDisciplina(Disciplina disciplina) {
 		if (disciplina != null) {
 			this.disciplina.add(disciplina);
 		}
